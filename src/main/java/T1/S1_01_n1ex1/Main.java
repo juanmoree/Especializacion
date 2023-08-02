@@ -14,5 +14,6 @@ public class Main {
 
         System.out.println(inst1);
         System.out.println(inst3);
+        System.out.println(inst2);
     }
 }
