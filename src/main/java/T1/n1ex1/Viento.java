@@ -1,4 +1,4 @@
-package T1.S1_01_n1ex1;
+package T1.n1ex1;
 
 public class Viento extends Instrumento {
     private String nombre;
