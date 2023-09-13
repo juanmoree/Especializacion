@@ -19,7 +19,7 @@ class MonthTest {
             System.out.println("Meses == 12, Lista != null");
         } else {
             System.out.println("La lista es null o tiene menos/mas de 12 meses");
-            fail();
+            assertEquals(12, month.getMonths().size());
         }
     }
     @Test
