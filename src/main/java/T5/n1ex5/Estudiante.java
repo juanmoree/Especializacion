@@ -31,6 +31,18 @@ public class Estudiante implements Serializable {
         return diasParaFinalizar;
     }
 
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setCurso(String curso) {
+        this.curso = curso;
+    }
+
+    public void setDiasParaFinalizar(int diasParaFinalizar) {
+        this.diasParaFinalizar = diasParaFinalizar;
+    }
+
     @Override
     public String toString() {
         return "Estudiante{" +

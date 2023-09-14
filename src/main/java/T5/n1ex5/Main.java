@@ -1,11 +1,14 @@
 package T5.n1ex5;
 
+import javax.swing.*;
 import java.io.*;
 import java.util.Scanner;
 
 public class Main {
+    static Scanner sc = new Scanner(System.in);
+
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+
 
         Estudiante[] estudiantes = new Estudiante[3];
 
@@ -13,12 +16,8 @@ public class Main {
         estudiantes[1] = new Estudiante("Pedro", 34, "JavaScript", 56);
         estudiantes[2] = new Estudiante("Ana", 26, "PHP", 37);
 
-
-        String pathName = System.getProperty("user.home") + File.separator + "Desktop" + File.separator;
-        System.out.println("Escoja un nombre para el archivo");
-        String fileName = sc.nextLine();
-
-        String pathToWrite = pathName + fileName + ".ser";
+        System.out.println("Escoja nombre y ubicacion para el archivo");
+        String pathToWrite = escogerRuta() + ".ser";
 
         try {
             ObjectOutputStream ser = new ObjectOutputStream(new FileOutputStream(pathToWrite));
@@ -36,5 +35,31 @@ public class Main {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private static String escogerRuta() {
+        Scanner sc = null;
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.showOpenDialog(fileChooser);
+        String ruta = "";
+        try {
+            ruta = fileChooser.getSelectedFile().getAbsolutePath();
+            File f = new File(ruta);
+            sc = new Scanner(f);
+            while (sc.hasNext()) {
+                System.out.println(sc.nextLine());
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
+        } catch (NullPointerException e) {
+            System.out.println("No se ha seleccionado ningún fichero");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (sc != null) {
+                sc.close();
+            }
+        }
+        return ruta;
     }
 }
