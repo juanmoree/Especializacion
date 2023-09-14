@@ -1,5 +1,6 @@
 package T5.n1ex3;
 
+import javax.swing.*;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.attribute.BasicFileAttributes;
@@ -13,7 +14,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         Scanner sc = new Scanner(System.in);
 
-        String pathName = System.getProperty("user.home") + File.separator + "Desktop" + File.separator;
+        String pathName = escogerRuta();
         File ruta = new File(pathName);
         File[] nombres = ruta.listFiles();
         BasicFileAttributes attrs = Files.readAttributes(ruta.toPath(), BasicFileAttributes.class);
@@ -83,5 +84,23 @@ public class Main {
                 System.out.println("Error al cerrar el archivo");
             }
         }
+    }
+    private static String escogerRuta() {
+        JFileChooser fc = new JFileChooser();
+        //fc.setCurrentDirectory(new File("."));
+        fc.setDialogTitle("Seleccione la carpeta para listar");
+        fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        fc.setAcceptAllFileFilterUsed(false);
+        String ruta;
+        int respuesta = fc.showOpenDialog(fc);
+        if (respuesta == JFileChooser.APPROVE_OPTION) {
+            File archivoElegido = fc.getSelectedFile().getAbsoluteFile();
+            ruta = archivoElegido.getAbsolutePath();
+            System.out.println("Directorio elegido: " + archivoElegido.getName());
+        } else {
+            System.out.println("La ruta escogida no es valida");
+            ruta = "";
+        }
+        return ruta;
     }
 }
