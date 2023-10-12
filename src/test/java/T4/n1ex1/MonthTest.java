@@ -15,20 +15,16 @@ class MonthTest {
 
     @Test
     public void testCantidad() {
-        if (month.getMonths() != null && month.getMonths().size() == 12) {
-            System.out.println("Meses == 12, Lista != null");
-        } else {
+        if (!(month.getMonths() != null && month.getMonths().size() == 12)) {
             System.out.println("La lista es null o tiene menos/mas de 12 meses");
             assertEquals(12, month.getMonths().size());
         }
     }
     @Test
     public void testPosicion() {
-        if (month.getMonths().get(7).equalsIgnoreCase("agosto")) {
-            System.out.println("El mes 8 corresponde a Agosto");
-        } else {
+        if (!(month.getMonths().get(7).equalsIgnoreCase("agosto"))) {
             System.out.println("El mes de Agosto no está bien posicionado");
-            fail();
+            assertEquals("agosto", month.getMonths().get(7));
         }
     }
 }
