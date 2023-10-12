@@ -1,0 +1,2 @@
+El jugador: Juan ha obtenido: 9 puntos
+El jugador: prueba0puntos ha obtenido: 0 puntos
