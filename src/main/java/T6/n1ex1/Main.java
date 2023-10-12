@@ -8,10 +8,10 @@ public class Main {
         Object dos = new Object();
         Object tres = new Object();
 
-        NoGenericMethods prueba1 = new NoGenericMethods(uno, dos, tres);
+        NoGenericMethods prueba1 = new NoGenericMethods("juan", 3.5f, 1);
         NoGenericMethods prueba2 = new NoGenericMethods(dos, tres, uno);
 
-        System.out.println(prueba1.getDos());
-        System.out.println(prueba2.getDos());
+        System.out.println(prueba1.getUno() + "\n" + prueba1.getDos() + "\n" + prueba1.getTres());
+        //System.out.println(prueba2.getDos());
     }
 }
