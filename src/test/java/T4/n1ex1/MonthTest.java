@@ -15,16 +15,11 @@ class MonthTest {
 
     @Test
     public void testCantidad() {
-        if (!(month.getMonths() != null && month.getMonths().size() == 12)) {
-            System.out.println("La lista es null o tiene menos/mas de 12 meses");
-            assertEquals(12, month.getMonths().size());
-        }
+        assertEquals(12, month.getMonths().size());
     }
+
     @Test
     public void testPosicion() {
-        if (!(month.getMonths().get(7).equalsIgnoreCase("agosto"))) {
-            System.out.println("El mes de Agosto no está bien posicionado");
-            assertEquals("agosto", month.getMonths().get(7));
-        }
+        assertEquals(("Agosto"), month.getMonths().get(7));
     }
 }
